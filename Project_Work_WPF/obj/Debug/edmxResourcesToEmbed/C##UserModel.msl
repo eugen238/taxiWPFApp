@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="UserEntities">
+    <FunctionImportMapping FunctionImportName="CHECKUSER" FunctionName="Хранилище Model.CHECKUSER">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.CHECKUSER_Result">
+          <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+          <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DELETEUSER" FunctionName="Хранилище Model.DELETEUSER" />
+    <FunctionImportMapping FunctionImportName="GETHISTORY" FunctionName="Хранилище Model.GETHISTORY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.GETHISTORY_Result">
+          <ScalarProperty Name="COSTFORTAXI" ColumnName="COSTFORTAXI" />
+          <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+          <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="RAITING" ColumnName="RAITING" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INSERTORDER" FunctionName="Хранилище Model.INSERTORDER" />
+    <FunctionImportMapping FunctionImportName="INSERTUSER" FunctionName="Хранилище Model.INSERTUSER" />
+    <FunctionImportMapping FunctionImportName="UPDATEUSER" FunctionName="Хранилище Model.UPDATEUSER" />
+    <FunctionImportMapping FunctionImportName="GETCARSNAMES" FunctionName="Хранилище Model.GETCARSNAMES">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.GETCARSNAMES_Result">
+          <ScalarProperty Name="MARK" ColumnName="MARK" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETDECTYPTEDPASSWORD" FunctionName="Хранилище Model.GETDECTYPTEDPASSWORD" />
+    <FunctionImportMapping FunctionImportName="GETUSER" FunctionName="Хранилище Model.GETUSER">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.GETUSER_Result">
+          <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+          <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USERSURNAME" ColumnName="USERSURNAME" />
+          <ScalarProperty Name="USERNUMBER" ColumnName="USERNUMBER" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

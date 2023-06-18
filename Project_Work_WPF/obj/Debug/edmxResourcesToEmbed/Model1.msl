@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities13">
+    <EntitySetMapping Name="CAR">
+      <EntityTypeMapping TypeName="Model.CAR">
+        <MappingFragment StoreEntitySet="CAR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MARK" ColumnName="MARK" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="NUMBEROFCAR" ColumnName="NUMBEROFCAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DRIVER">
+      <EntityTypeMapping TypeName="Model.DRIVER">
+        <MappingFragment StoreEntitySet="DRIVER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAXIORDER">
+      <EntityTypeMapping TypeName="Model.TAXIORDER">
+        <MappingFragment StoreEntitySet="TAXIORDER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+          <ScalarProperty Name="DRIVERID" ColumnName="DRIVERID" />
+          <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+          <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+          <ScalarProperty Name="CARID" ColumnName="CARID" />
+          <ScalarProperty Name="COST" ColumnName="COST" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="POINT" ColumnName="POINT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAXIUSER">
+      <EntityTypeMapping TypeName="Model.TAXIUSER">
+        <MappingFragment StoreEntitySet="TAXIUSER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+          <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USERSURNAME" ColumnName="USERSURNAME" />
+          <ScalarProperty Name="USERNUMBER" ColumnName="USERNUMBER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPEOFUSER">
+      <EntityTypeMapping TypeName="Model.TYPEOFUSER">
+        <MappingFragment StoreEntitySet="TYPEOFUSER">
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="NAMEOFTYPE" ColumnName="NAMEOFTYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERHISTORY">
+      <EntityTypeMapping TypeName="Model.USERHISTORY">
+        <MappingFragment StoreEntitySet="USERHISTORY">
+          <ScalarProperty Name="HISTORYID" ColumnName="HISTORYID" />
+          <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+          <ScalarProperty Name="COSTFORTAXI" ColumnName="COSTFORTAXI" />
+          <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+          <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="RAITING" ColumnName="RAITING" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CHECKADMIN" FunctionName="Хранилище Model.CHECKADMIN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.CHECKADMIN_Result">
+          <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+          <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CHECKUSER" FunctionName="Хранилище Model.CHECKUSER">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.CHECKUSER_Result">
+          <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+          <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DELETECAR" FunctionName="Хранилище Model.DELETECAR" />
+    <FunctionImportMapping FunctionImportName="DELETEDRIVER" FunctionName="Хранилище Model.DELETEDRIVER" />
+    <FunctionImportMapping FunctionImportName="GETCARS" FunctionName="Хранилище Model.GETCARS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.GETCARS_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MARK" ColumnName="MARK" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="NUMBEROFCAR" ColumnName="NUMBEROFCAR" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETDRIVERS" FunctionName="Хранилище Model.GETDRIVERS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.GETDRIVERS_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETHISTORY" FunctionName="Хранилище Model.GETHISTORY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.GETHISTORY_Result">
+          <ScalarProperty Name="COSTFORTAXI" ColumnName="COSTFORTAXI" />
+          <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+          <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="RAITING" ColumnName="RAITING" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETPROFIT" FunctionName="Хранилище Model.GETPROFIT" />
+    <FunctionImportMapping FunctionImportName="GETSTATISTICS" FunctionName="Хранилище Model.GETSTATISTICS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.GETSTATISTICS_Result">
+          <ScalarProperty Name="TO_CHAR_TIME__YYYY_MM_DD__" ColumnName="TO_CHAR(TIME,'YYYY-MM-DD')" />
+          <ScalarProperty Name="SUM_COSTFORTAXI_" ColumnName="SUM(COSTFORTAXI)" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INSERTCAR" FunctionName="Хранилище Model.INSERTCAR" />
+    <FunctionImportMapping FunctionImportName="INSERTDRIVER" FunctionName="Хранилище Model.INSERTDRIVER" />
+    <FunctionImportMapping FunctionImportName="INSERTORDER" FunctionName="Хранилище Model.INSERTORDER" />
+    <FunctionImportMapping FunctionImportName="INSERTUSER" FunctionName="Хранилище Model.INSERTUSER" />
+    <FunctionImportMapping FunctionImportName="UPDATECAR" FunctionName="Хранилище Model.UPDATECAR" />
+    <FunctionImportMapping FunctionImportName="UPDATEDRIVER" FunctionName="Хранилище Model.UPDATEDRIVER" />
+  </EntityContainerMapping>
+</Mapping>

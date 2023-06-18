@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Project_Work_WPF.ViewModels.Admin_CarPage_ViewModel">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAQAAAAAAgAAAAAAAAABAAAgAAAAQAAQAQAAA=</HashCode>
+      <FileName>ViewModels\Admin_ CarPage_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Admin_Page_AddCar_ViewModel">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAAAAAQAAAIAAAAEAAAAAAAAAiAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Admin_Page_AddCar_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Admin_Page_AddDriver_ViewModel">
+    <Position X="18.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAACAAAAAAAEAAAAUABACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Admin_Page_AddDriver_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Admin_Page_Company_Statistic_ViewModell">
+    <Position X="25.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Admin_Page_Company_Statistic_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Admin_Page_DriverOnMap_ViewModel">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACQAgAAAAggABAAAAAABAAAAAAAAQQAAAQAAA=</HashCode>
+      <FileName>ViewModels\Admin_Page_DriverOnMap_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Admin_Page_SetPrice_ViewModel">
+    <Position X="14" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>ViewModels\Admin_Page_SetPrice_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Admin_Page_ViewModel">
+    <Position X="20.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAEQjAAhAAAABAAAAAAYAAAgAAAQAAEBAgAAA=</HashCode>
+      <FileName>ViewModels\Admin_Page_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Admin_UserPage_ViewModel">
+    <Position X="27.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAQAAAAAAAgAAAAAAAABAAAgAAAAQAAQAQAAI=</HashCode>
+      <FileName>ViewModels\Admin_UserPage_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.BaseViewModel">
+    <Position X="18.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAQAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Evaluation_ViewModel">
+    <Position X="29.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Evaluation_ViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.GeoInfoViewModel">
+    <Position X="29.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAAAQAAAEgAAAAIAAAIAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\GeoInfoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.History_Page_ViewModel">
+    <Position X="29.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAgIAAAAAAAAgAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\History_Page_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Login_Page_ViewModel">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAACEYAAAgAAAAAgAQACAAAAAAKFAAA=</HashCode>
+      <FileName>ViewModels\Login_Page_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.MainViewModel">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAACAQAAACAAEABAAAAAAAAAACBAAQAAEBACgAA=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.Register_Page_ViewModel">
+    <Position X="23" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAEAAAQgQABAABEAACEAAQAAKFAAA=</HashCode>
+      <FileName>ViewModels\Register_Page_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.ViewModels.User_Page_ViewModel">
+    <Position X="32" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgwAAgAAAQJEhAxgSVAEAAAQ2IgMQAFABBAKAEhAAQA=</HashCode>
+      <FileName>ViewModels\User_Page_ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Admin_CarPage_UserControl" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_CarPage_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Admin_Page_AddCar_UserControl" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_AddCar_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Admin_Page_AddDriver_UserControl" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_AddDriver_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Admin_Page_Company_Statistic_UserControl" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_Company_Statistic_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Admin_Page_DriverOnMap_UserControl" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_DriverOnMap_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Admin_Page_SetPrice_UserControl" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_SetPrice_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.192" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Admin_Page_UserControl" BaseTypeListCollapsed="true">
+    <Position X="21" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Admin_UserPage_UserControl" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_UserPage_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Completed_Window" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAEABAAAAQAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Completed_Window.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Error_Window" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Error_Window.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.History_Page_UserControl" BaseTypeListCollapsed="true">
+    <Position X="19" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\History_Page_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.EvaluationWindow" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAABEAAAAAAAAAAkAAAAAAAAA0CAAAAAAAAA=</HashCode>
+      <FileName>Views\EvaluationWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Login_Page_UserControl" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAQAAAAggAAA=</HashCode>
+      <FileName>Views\Login_Page_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.User_Page_UserControl" BaseTypeListCollapsed="true">
+    <Position X="19" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAAAAAABAAAAAAAAAAAAAAAgAAAAAACAAAAABAAA=</HashCode>
+      <FileName>Views\User_Page_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Views.Register_Page_UserControl" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Register_Page_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Services.IpInfo">
+    <Position X="27.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAKAAAAAAAAAAoAAAAgAAAAAAABIAA=</HashCode>
+      <FileName>Services\IpInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Navigation.Mediator">
+    <Position X="26.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAABAYAAAAAAAAAA=</HashCode>
+      <FileName>Navigation\Mediator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Models.Statistics">
+    <Position X="22.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAIAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Statistics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Models.Person">
+    <Position X="21" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Models.Month">
+    <Position X="22.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAABAAAAAAAACAA=</HashCode>
+      <FileName>Models\Month.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Models.Departure">
+    <Position X="21" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAABAAIAAgAABBAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Departure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.CustomExceptions.InvalidDataException">
+    <Position X="19" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomExceptions\InvalidDataException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Components.BindablePasswordBox">
+    <Position X="25.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAQgAAAAAAAAAAAAAAAAAAAAABACAAAAAAIAAAA=</HashCode>
+      <FileName>Components\BindablePasswordBox.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Project_Work_WPF.Commands.EventRaiser">
+    <Position X="13.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\EventRaiser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Commands.EventArgs&lt;T&gt;">
+    <Position X="12" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Commands\EventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfAdmin_CarPage_UserControl" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_CarPage_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfAdmin_Page_AddCar_UserControl" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_AddCar_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfAdmin_Page_AddDriver_UserControl" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_AddDriver_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfAdmin_Page_Company_Statistic_UserControl" BaseTypeListCollapsed="true">
+    <Position X="19" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_Company_Statistic_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfAdmin_UserPage_UserControl" BaseTypeListCollapsed="true">
+    <Position X="19" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_UserPage_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfAdmin_Page_UserControl" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfAdmin_Page_SetPrice_UserControl" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_SetPrice_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfAdmin_Page_DriverOnMap_UserControl" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Admin_Page_DriverOnMap_UserControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfCompleted_Window" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAEABAAAAQAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Completed_Window.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project_Work_WPF.Views.CopyOfError_Window" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Error_Window.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Project_Work_WPF.Navigation.IPageViewModel">
+    <Position X="24.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Navigation\IPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

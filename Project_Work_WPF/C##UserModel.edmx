@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Model" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="CHECKUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+          <Parameter Name="CHECKLOGIN" Type="nvarchar2" Mode="In" />
+          <Parameter Name="CHECKPASSWORD" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="DELETEUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+          <Parameter Name="DELETEID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="GETCARSNAMES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER" />
+        <Function Name="GETDECTYPTEDPASSWORD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+          <Parameter Name="ENCRYPTEDPASSWORD" Type="nvarchar2" Mode="In" />
+          <Parameter Name="DECRYPTEDPASSWORD" Type="nvarchar2" Mode="Out" />
+        </Function>
+        <Function Name="GETHISTORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+          <Parameter Name="GETCLIENTID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="GETUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+          <Parameter Name="GETLOGIN" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="INSERTORDER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+          <Parameter Name="INSERTCARID" Type="number" Mode="In" />
+          <Parameter Name="INSERTDRIVERID" Type="number" Mode="In" />
+          <Parameter Name="INSERTTIME" Type="timestamp" Mode="In" />
+          <Parameter Name="INSERTCLIENTID" Type="number" Mode="In" />
+          <Parameter Name="INSERTCOST" Type="number" Mode="In" />
+          <Parameter Name="INSERTFROMLOCATION" Type="nvarchar2" Mode="In" />
+          <Parameter Name="INSERTTOLOCATION" Type="nvarchar2" Mode="In" />
+          <Parameter Name="INSERTPOINT" Type="number" Mode="In" />
+        </Function>
+        <Function Name="INSERTUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+          <Parameter Name="INSERTLOGIN" Type="nvarchar2" Mode="In" />
+          <Parameter Name="INSERTPASSWORD" Type="nvarchar2" Mode="In" />
+          <Parameter Name="INSERTNAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="INSERTSURNAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="INSERTNUMBER" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="UPDATEUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+          <Parameter Name="USERID" Type="number" Mode="In" />
+          <Parameter Name="UPDATELOGIN" Type="nvarchar2" Mode="In" />
+          <Parameter Name="UPDATEPASSWORD" Type="nvarchar2" Mode="In" />
+          <Parameter Name="UPDATENAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="UPDATESURNAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="UPDATENUMBER" Type="nvarchar2" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище ModelContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UserEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="CHECKUSER" ReturnType="Collection(Model.CHECKUSER_Result)">
+            <Parameter Name="CHECKLOGIN" Mode="In" Type="String" />
+            <Parameter Name="CHECKPASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DELETEUSER">
+          <Parameter Name="DELETEID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GETHISTORY" ReturnType="Collection(Model.GETHISTORY_Result)">
+          <Parameter Name="GETCLIENTID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTORDER">
+            <Parameter Name="INSERTCARID" Mode="In" Type="Decimal" />
+            <Parameter Name="INSERTDRIVERID" Mode="In" Type="Decimal" />
+            <Parameter Name="INSERTTIME" Mode="In" Type="DateTime" />
+            <Parameter Name="INSERTCLIENTID" Mode="In" Type="Decimal" />
+            <Parameter Name="INSERTCOST" Mode="In" Type="Decimal" />
+            <Parameter Name="INSERTFROMLOCATION" Mode="In" Type="String" />
+            <Parameter Name="INSERTTOLOCATION" Mode="In" Type="String" />
+            <Parameter Name="INSERTPOINT" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="INSERTUSER">
+            <Parameter Name="INSERTLOGIN" Mode="In" Type="String" />
+            <Parameter Name="INSERTPASSWORD" Mode="In" Type="String" />
+            <Parameter Name="INSERTNAME" Mode="In" Type="String" />
+            <Parameter Name="INSERTSURNAME" Mode="In" Type="String" />
+            <Parameter Name="INSERTNUMBER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UPDATEUSER">
+            <Parameter Name="USERID" Mode="In" Type="Decimal" />
+            <Parameter Name="UPDATELOGIN" Mode="In" Type="String" />
+            <Parameter Name="UPDATEPASSWORD" Mode="In" Type="String" />
+            <Parameter Name="UPDATENAME" Mode="In" Type="String" />
+            <Parameter Name="UPDATESURNAME" Mode="In" Type="String" />
+            <Parameter Name="UPDATENUMBER" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GETCARSNAMES" ReturnType="Collection(Model.GETCARSNAMES_Result)" />
+          <FunctionImport Name="GETDECTYPTEDPASSWORD">
+            <Parameter Name="ENCRYPTEDPASSWORD" Mode="In" Type="String" />
+            <Parameter Name="DECRYPTEDPASSWORD" Mode="Out" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GETUSER" ReturnType="Collection(Model.GETUSER_Result)">
+            <Parameter Name="GETLOGIN" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="CHECKUSER_Result">
+          <Property Type="String" Name="USERLOGIN" Nullable="true" />
+          <Property Type="String" Name="USERPASSWORD" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GETHISTORY_Result">
+          <Property Type="Decimal" Name="COSTFORTAXI" Nullable="true" />
+          <Property Type="String" Name="FROMLOCATION" Nullable="true" />
+          <Property Type="String" Name="TOLOCATION" Nullable="true" />
+          <Property Type="DateTime" Name="TIME" Nullable="true" />
+          <Property Type="Decimal" Name="RAITING" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GETCARSNAMES_Result">
+          <Property Type="String" Name="MARK" Nullable="true" />
+          <Property Type="String" Name="MODEL" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GETUSER_Result">
+          <Property Type="String" Name="USERLOGIN" Nullable="true" />
+          <Property Type="String" Name="USERPASSWORD" Nullable="true" />
+          <Property Type="String" Name="USERNAME" Nullable="true" />
+          <Property Type="String" Name="USERSURNAME" Nullable="true" />
+          <Property Type="String" Name="USERNUMBER" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="UserEntities" >
+          <FunctionImportMapping FunctionImportName="CHECKUSER" FunctionName="Хранилище Model.CHECKUSER" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.CHECKUSER_Result">
+                <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+                <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DELETEUSER" FunctionName="Хранилище Model.DELETEUSER" />
+          <FunctionImportMapping FunctionImportName="GETHISTORY" FunctionName="Хранилище Model.GETHISTORY" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GETHISTORY_Result">
+                <ScalarProperty Name="COSTFORTAXI" ColumnName="COSTFORTAXI" />
+                <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+                <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="RAITING" ColumnName="RAITING" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="INSERTORDER" FunctionName="Хранилище Model.INSERTORDER" />
+          <FunctionImportMapping FunctionImportName="INSERTUSER" FunctionName="Хранилище Model.INSERTUSER" />
+          <FunctionImportMapping FunctionImportName="UPDATEUSER" FunctionName="Хранилище Model.UPDATEUSER" />
+          <FunctionImportMapping FunctionImportName="GETCARSNAMES" FunctionName="Хранилище Model.GETCARSNAMES" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GETCARSNAMES_Result">
+                <ScalarProperty Name="MARK" ColumnName="MARK" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GETDECTYPTEDPASSWORD" FunctionName="Хранилище Model.GETDECTYPTEDPASSWORD" />
+          <FunctionImportMapping FunctionImportName="GETUSER" FunctionName="Хранилище Model.GETUSER" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GETUSER_Result">
+                <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+                <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USERSURNAME" ColumnName="USERSURNAME" />
+                <ScalarProperty Name="USERNUMBER" ColumnName="USERNUMBER" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MARK" Type="nvarchar2" MaxLength="10" />
+    <Property Name="MODEL" Type="nvarchar2" MaxLength="50" />
+    <Property Name="NUMBEROFCAR" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="DRIVER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar2" MaxLength="50" />
+    <Property Name="SURNAME" Type="nvarchar2" MaxLength="50" />
+    <Property Name="EMAIL" Type="nvarchar2" MaxLength="50" />
+    <Property Name="AGE" Type="number" Precision="2" Scale="0" />
+  </EntityType>
+  <EntityType Name="TAXIORDER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CLIENTID" Type="number" Precision="38" Scale="0" />
+    <Property Name="DRIVERID" Type="number" Precision="38" Scale="0" />
+    <Property Name="FROMLOCATION" Type="nvarchar2" MaxLength="50" />
+    <Property Name="TOLOCATION" Type="nvarchar2" MaxLength="50" />
+    <Property Name="CARID" Type="number" Precision="38" Scale="0" />
+    <Property Name="COST" Type="number" Precision="38" Scale="0" />
+    <Property Name="TIME" Type="timestamp" Precision="6" />
+    <Property Name="POINT" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="TAXIUSER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TYPEID" Type="number" Precision="38" Scale="0" />
+    <Property Name="USERLOGIN" Type="nvarchar2" MaxLength="50" />
+    <Property Name="USERPASSWORD" Type="nvarchar2" MaxLength="50" />
+    <Property Name="USERNAME" Type="nvarchar2" MaxLength="50" />
+    <Property Name="USERSURNAME" Type="nvarchar2" MaxLength="50" />
+    <Property Name="USERNUMBER" Type="nvarchar2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TYPEOFUSER">
+    <Key>
+      <PropertyRef Name="TYPEID" />
+    </Key>
+    <Property Name="TYPEID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAMEOFTYPE" Type="nvarchar2" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="USERHISTORY">
+    <Key>
+      <PropertyRef Name="HISTORYID" />
+    </Key>
+    <Property Name="HISTORYID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CLIENTID" Type="number" Precision="38" Scale="0" />
+    <Property Name="COSTFORTAXI" Type="number" Precision="38" Scale="0" />
+    <Property Name="TOLOCATION" Type="nvarchar2" MaxLength="50" />
+    <Property Name="FROMLOCATION" Type="nvarchar2" MaxLength="50" />
+    <Property Name="TIME" Type="timestamp" Precision="6" />
+    <Property Name="RAITING" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <Association Name="FK_CARIDFORTAXIORDER">
+    <End Role="CAR" Type="Self.CAR" Multiplicity="0..1" />
+    <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TAXIORDER">
+        <PropertyRef Name="CARID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTID">
+    <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="0..1" />
+    <End Role="USERHISTORY" Type="Self.USERHISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAXIUSER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USERHISTORY">
+        <PropertyRef Name="CLIENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTIDFORTAXIORDER">
+    <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="0..1" />
+    <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAXIUSER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TAXIORDER">
+        <PropertyRef Name="CLIENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRIVERIDFORTAXIORDER">
+    <End Role="DRIVER" Type="Self.DRIVER" Multiplicity="0..1" />
+    <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DRIVER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TAXIORDER">
+        <PropertyRef Name="DRIVERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TYPEID">
+    <End Role="TYPEOFUSER" Type="Self.TYPEOFUSER" Multiplicity="0..1" />
+    <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPEOFUSER">
+        <PropertyRef Name="TYPEID" />
+      </Principal>
+      <Dependent Role="TAXIUSER">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CHECKADMIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="CHECKLOGIN" Type="nvarchar2" Mode="In" />
+    <Parameter Name="CHECKPASSWORD" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="CHECKUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="CHECKLOGIN" Type="nvarchar2" Mode="In" />
+    <Parameter Name="CHECKPASSWORD" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="DELETECAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="DELETEID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEDRIVER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="DELETEID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="GETCARS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM" />
+  <Function Name="GETDRIVERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM" />
+  <Function Name="GETHISTORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="GETCLIENTID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="GETPROFIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="PROFIT" Type="number" Mode="Out" />
+  </Function>
+  <Function Name="GETSTATISTICS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM" />
+  <Function Name="INSERTCAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="INSERTMARK" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTMODEL" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTNUMBEROFCAR" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTDRIVER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="INSERTNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTSURNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTEMAIL" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTAGE" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTORDER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="INSERTCARID" Type="number" Mode="In" />
+    <Parameter Name="INSERTDRIVERID" Type="number" Mode="In" />
+    <Parameter Name="INSERTTIME" Type="timestamp" Mode="In" />
+    <Parameter Name="INSERTCLIENTID" Type="number" Mode="In" />
+    <Parameter Name="INSERTCOST" Type="number" Mode="In" />
+    <Parameter Name="INSERTFROMLOCATION" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTTOLOCATION" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTPOINT" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="INSERTLOGIN" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTPASSWORD" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTSURNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTNUMBER" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATECAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="UPDATEID" Type="number" Mode="In" />
+    <Parameter Name="UPDATEMARK" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATEMODEL" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATENUMBEROFCAR" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATEDRIVER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SYSTEM">
+    <Parameter Name="UPDATEID" Type="number" Mode="In" />
+    <Parameter Name="UPDATENAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATESURNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATEEMAIL" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATEAGE" Type="number" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="CAR" EntityType="Self.CAR" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="DRIVER" EntityType="Self.DRIVER" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="TAXIORDER" EntityType="Self.TAXIORDER" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="TAXIUSER" EntityType="Self.TAXIUSER" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="TYPEOFUSER" EntityType="Self.TYPEOFUSER" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="USERHISTORY" EntityType="Self.USERHISTORY" Schema="SYSTEM" store:Type="Tables" />
+    <AssociationSet Name="FK_CARIDFORTAXIORDER" Association="Self.FK_CARIDFORTAXIORDER">
+      <End Role="CAR" EntitySet="CAR" />
+      <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTID" Association="Self.FK_CLIENTID">
+      <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+      <End Role="USERHISTORY" EntitySet="USERHISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTIDFORTAXIORDER" Association="Self.FK_CLIENTIDFORTAXIORDER">
+      <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+      <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRIVERIDFORTAXIORDER" Association="Self.FK_DRIVERIDFORTAXIORDER">
+      <End Role="DRIVER" EntitySet="DRIVER" />
+      <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TYPEID" Association="Self.FK_TYPEID">
+      <End Role="TYPEOFUSER" EntitySet="TYPEOFUSER" />
+      <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

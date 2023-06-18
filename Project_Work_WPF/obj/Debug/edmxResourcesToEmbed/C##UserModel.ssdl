@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="CHECKUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+    <Parameter Name="CHECKLOGIN" Type="nvarchar2" Mode="In" />
+    <Parameter Name="CHECKPASSWORD" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="DELETEUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+    <Parameter Name="DELETEID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="GETCARSNAMES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER" />
+  <Function Name="GETDECTYPTEDPASSWORD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+    <Parameter Name="ENCRYPTEDPASSWORD" Type="nvarchar2" Mode="In" />
+    <Parameter Name="DECRYPTEDPASSWORD" Type="nvarchar2" Mode="Out" />
+  </Function>
+  <Function Name="GETHISTORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+    <Parameter Name="GETCLIENTID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="GETUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+    <Parameter Name="GETLOGIN" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTORDER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+    <Parameter Name="INSERTCARID" Type="number" Mode="In" />
+    <Parameter Name="INSERTDRIVERID" Type="number" Mode="In" />
+    <Parameter Name="INSERTTIME" Type="timestamp" Mode="In" />
+    <Parameter Name="INSERTCLIENTID" Type="number" Mode="In" />
+    <Parameter Name="INSERTCOST" Type="number" Mode="In" />
+    <Parameter Name="INSERTFROMLOCATION" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTTOLOCATION" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTPOINT" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+    <Parameter Name="INSERTLOGIN" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTPASSWORD" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTSURNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTNUMBER" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATEUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##USER">
+    <Parameter Name="USERID" Type="number" Mode="In" />
+    <Parameter Name="UPDATELOGIN" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATEPASSWORD" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATENAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATESURNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATENUMBER" Type="nvarchar2" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище ModelContainer" />
+</Schema>

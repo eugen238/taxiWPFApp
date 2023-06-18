@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model2" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MARK" Type="nvarchar2" MaxLength="10" />
+          <Property Name="MODEL" Type="nvarchar2" MaxLength="50" />
+          <Property Name="NUMBEROFCAR" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="DRIVER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="SURNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar2" MaxLength="50" />
+          <Property Name="AGE" Type="number" Precision="2" Scale="0" />
+        </EntityType>
+        <EntityType Name="TAXIORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTID" Type="number" Precision="38" Scale="0" />
+          <Property Name="DRIVERID" Type="number" Precision="38" Scale="0" />
+          <Property Name="FROMLOCATION" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TOLOCATION" Type="nvarchar2" MaxLength="50" />
+          <Property Name="CARID" Type="number" Precision="38" Scale="0" />
+          <Property Name="COST" Type="number" Precision="38" Scale="0" />
+          <Property Name="TIME" Type="timestamp" Precision="6" />
+          <Property Name="POINT" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TAXIUSER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TYPEID" Type="number" Precision="38" Scale="0" />
+          <Property Name="USERLOGIN" Type="nvarchar2" MaxLength="50" />
+          <Property Name="USERPASSWORD" Type="nvarchar2" MaxLength="50" />
+          <Property Name="USERNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="USERSURNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="USERNUMBER" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TYPEOFUSER">
+          <Key>
+            <PropertyRef Name="TYPEID" />
+          </Key>
+          <Property Name="TYPEID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAMEOFTYPE" Type="nvarchar2" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="USERHISTORY">
+          <Key>
+            <PropertyRef Name="HISTORYID" />
+          </Key>
+          <Property Name="HISTORYID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTID" Type="number" Precision="38" Scale="0" />
+          <Property Name="COSTFORTAXI" Type="number" Precision="38" Scale="0" />
+          <Property Name="TOLOCATION" Type="nvarchar2" MaxLength="50" />
+          <Property Name="FROMLOCATION" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="timestamp" Precision="6" />
+          <Property Name="RAITING" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <Association Name="FK_CARIDFORTAXIORDER">
+          <End Role="CAR" Type="Self.CAR" Multiplicity="0..1" />
+          <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TAXIORDER">
+              <PropertyRef Name="CARID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLIENTID">
+          <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="0..1" />
+          <End Role="USERHISTORY" Type="Self.USERHISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAXIUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USERHISTORY">
+              <PropertyRef Name="CLIENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLIENTIDFORTAXIORDER">
+          <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="0..1" />
+          <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAXIUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TAXIORDER">
+              <PropertyRef Name="CLIENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DRIVERIDFORTAXIORDER">
+          <End Role="DRIVER" Type="Self.DRIVER" Multiplicity="0..1" />
+          <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DRIVER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TAXIORDER">
+              <PropertyRef Name="DRIVERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TYPEID">
+          <End Role="TYPEOFUSER" Type="Self.TYPEOFUSER" Multiplicity="0..1" />
+          <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPEOFUSER">
+              <PropertyRef Name="TYPEID" />
+            </Principal>
+            <Dependent Role="TAXIUSER">
+              <PropertyRef Name="TYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Model2Container">
+          <EntitySet Name="CAR" EntityType="Self.CAR" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="DRIVER" EntityType="Self.DRIVER" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TAXIORDER" EntityType="Self.TAXIORDER" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TAXIUSER" EntityType="Self.TAXIUSER" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="TYPEOFUSER" EntityType="Self.TYPEOFUSER" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="USERHISTORY" EntityType="Self.USERHISTORY" Schema="SYSTEM" store:Type="Tables" />
+          <AssociationSet Name="FK_CARIDFORTAXIORDER" Association="Self.FK_CARIDFORTAXIORDER">
+            <End Role="CAR" EntitySet="CAR" />
+            <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLIENTID" Association="Self.FK_CLIENTID">
+            <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+            <End Role="USERHISTORY" EntitySet="USERHISTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLIENTIDFORTAXIORDER" Association="Self.FK_CLIENTIDFORTAXIORDER">
+            <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+            <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DRIVERIDFORTAXIORDER" Association="Self.FK_DRIVERIDFORTAXIORDER">
+            <End Role="DRIVER" EntitySet="DRIVER" />
+            <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TYPEID" Association="Self.FK_TYPEID">
+            <End Role="TYPEOFUSER" EntitySet="TYPEOFUSER" />
+            <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MARK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NUMBEROFCAR" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="TAXIORDER" Relationship="Self.FK_CARIDFORTAXIORDER" FromRole="CAR" ToRole="TAXIORDER" />
+        </EntityType>
+        <EntityType Name="DRIVER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AGE" Type="Byte" />
+          <NavigationProperty Name="TAXIORDER" Relationship="Self.FK_DRIVERIDFORTAXIORDER" FromRole="DRIVER" ToRole="TAXIORDER" />
+        </EntityType>
+        <EntityType Name="TAXIORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DRIVERID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="FROMLOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TOLOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CARID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COST" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TIME" Type="DateTime" Precision="6" />
+          <Property Name="POINT" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="CAR" Relationship="Self.FK_CARIDFORTAXIORDER" FromRole="TAXIORDER" ToRole="CAR" />
+          <NavigationProperty Name="DRIVER" Relationship="Self.FK_DRIVERIDFORTAXIORDER" FromRole="TAXIORDER" ToRole="DRIVER" />
+          <NavigationProperty Name="TAXIUSER" Relationship="Self.FK_CLIENTIDFORTAXIORDER" FromRole="TAXIORDER" ToRole="TAXIUSER" />
+        </EntityType>
+        <EntityType Name="TAXIUSER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TYPEID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="USERLOGIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERPASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERSURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TAXIORDER" Relationship="Self.FK_CLIENTIDFORTAXIORDER" FromRole="TAXIUSER" ToRole="TAXIORDER" />
+          <NavigationProperty Name="USERHISTORY" Relationship="Self.FK_CLIENTID" FromRole="TAXIUSER" ToRole="USERHISTORY" />
+          <NavigationProperty Name="TYPEOFUSER" Relationship="Self.FK_TYPEID" FromRole="TAXIUSER" ToRole="TYPEOFUSER" />
+        </EntityType>
+        <EntityType Name="TYPEOFUSER">
+          <Key>
+            <PropertyRef Name="TYPEID" />
+          </Key>
+          <Property Name="TYPEID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAMEOFTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TAXIUSER" Relationship="Self.FK_TYPEID" FromRole="TYPEOFUSER" ToRole="TAXIUSER" />
+        </EntityType>
+        <EntityType Name="USERHISTORY">
+          <Key>
+            <PropertyRef Name="HISTORYID" />
+          </Key>
+          <Property Name="HISTORYID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COSTFORTAXI" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TOLOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FROMLOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" Precision="6" />
+          <Property Name="RAITING" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="TAXIUSER" Relationship="Self.FK_CLIENTID" FromRole="USERHISTORY" ToRole="TAXIUSER" />
+        </EntityType>
+        <Association Name="FK_CARIDFORTAXIORDER">
+          <End Role="CAR" Type="Self.CAR" Multiplicity="0..1" />
+          <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TAXIORDER">
+              <PropertyRef Name="CARID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DRIVERIDFORTAXIORDER">
+          <End Role="DRIVER" Type="Self.DRIVER" Multiplicity="0..1" />
+          <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DRIVER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TAXIORDER">
+              <PropertyRef Name="DRIVERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLIENTIDFORTAXIORDER">
+          <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="0..1" />
+          <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAXIUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TAXIORDER">
+              <PropertyRef Name="CLIENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLIENTID">
+          <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="0..1" />
+          <End Role="USERHISTORY" Type="Self.USERHISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAXIUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USERHISTORY">
+              <PropertyRef Name="CLIENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TYPEID">
+          <End Role="TYPEOFUSER" Type="Self.TYPEOFUSER" Multiplicity="0..1" />
+          <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPEOFUSER">
+              <PropertyRef Name="TYPEID" />
+            </Principal>
+            <Dependent Role="TAXIUSER">
+              <PropertyRef Name="TYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Tables" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CAR" EntityType="Self.CAR" />
+          <EntitySet Name="DRIVER" EntityType="Self.DRIVER" />
+          <EntitySet Name="TAXIORDER" EntityType="Self.TAXIORDER" />
+          <EntitySet Name="TAXIUSER" EntityType="Self.TAXIUSER" />
+          <EntitySet Name="TYPEOFUSER" EntityType="Self.TYPEOFUSER" />
+          <EntitySet Name="USERHISTORY" EntityType="Self.USERHISTORY" />
+          <AssociationSet Name="FK_CARIDFORTAXIORDER" Association="Self.FK_CARIDFORTAXIORDER">
+            <End Role="CAR" EntitySet="CAR" />
+            <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DRIVERIDFORTAXIORDER" Association="Self.FK_DRIVERIDFORTAXIORDER">
+            <End Role="DRIVER" EntitySet="DRIVER" />
+            <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLIENTIDFORTAXIORDER" Association="Self.FK_CLIENTIDFORTAXIORDER">
+            <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+            <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLIENTID" Association="Self.FK_CLIENTID">
+            <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+            <End Role="USERHISTORY" EntitySet="USERHISTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TYPEID" Association="Self.FK_TYPEID">
+            <End Role="TYPEOFUSER" EntitySet="TYPEOFUSER" />
+            <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Model2Container" CdmEntityContainer="Tables">
+          <EntitySetMapping Name="CAR">
+            <EntityTypeMapping TypeName="Model2.CAR">
+              <MappingFragment StoreEntitySet="CAR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MARK" ColumnName="MARK" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="NUMBEROFCAR" ColumnName="NUMBEROFCAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DRIVER">
+            <EntityTypeMapping TypeName="Model2.DRIVER">
+              <MappingFragment StoreEntitySet="DRIVER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAXIORDER">
+            <EntityTypeMapping TypeName="Model2.TAXIORDER">
+              <MappingFragment StoreEntitySet="TAXIORDER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+                <ScalarProperty Name="DRIVERID" ColumnName="DRIVERID" />
+                <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+                <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+                <ScalarProperty Name="CARID" ColumnName="CARID" />
+                <ScalarProperty Name="COST" ColumnName="COST" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="POINT" ColumnName="POINT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAXIUSER">
+            <EntityTypeMapping TypeName="Model2.TAXIUSER">
+              <MappingFragment StoreEntitySet="TAXIUSER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+                <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+                <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USERSURNAME" ColumnName="USERSURNAME" />
+                <ScalarProperty Name="USERNUMBER" ColumnName="USERNUMBER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPEOFUSER">
+            <EntityTypeMapping TypeName="Model2.TYPEOFUSER">
+              <MappingFragment StoreEntitySet="TYPEOFUSER">
+                <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+                <ScalarProperty Name="NAMEOFTYPE" ColumnName="NAMEOFTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERHISTORY">
+            <EntityTypeMapping TypeName="Model2.USERHISTORY">
+              <MappingFragment StoreEntitySet="USERHISTORY">
+                <ScalarProperty Name="HISTORYID" ColumnName="HISTORYID" />
+                <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+                <ScalarProperty Name="COSTFORTAXI" ColumnName="COSTFORTAXI" />
+                <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+                <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="RAITING" ColumnName="RAITING" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

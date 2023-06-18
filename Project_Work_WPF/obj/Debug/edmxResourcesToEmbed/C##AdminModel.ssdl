@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model1" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="CHECKADMIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="CHECKLOGIN" Type="nvarchar2" Mode="In" />
+    <Parameter Name="CHECKPASSWORD" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="CHECKUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="CHECKLOGIN" Type="nvarchar2" Mode="In" />
+    <Parameter Name="CHECKPASSWORD" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="DELETECAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="DELETEID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEDRIVER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="DELETEID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="GETCARS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN" />
+  <Function Name="GETDRIVERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN" />
+  <Function Name="GETPROFIT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="PROFIT" Type="number" Mode="Out" />
+  </Function>
+  <Function Name="GETSTATISTICS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN" />
+  <Function Name="INSERTCAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="INSERTMARK" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTMODEL" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTNUMBEROFCAR" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTDRIVER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="INSERTNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTSURNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTEMAIL" Type="nvarchar2" Mode="In" />
+    <Parameter Name="INSERTAGE" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATECAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="UPDATEID" Type="number" Mode="In" />
+    <Parameter Name="UPDATEMARK" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATEMODEL" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATENUMBEROFCAR" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATEDRIVER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="C##ADMIN">
+    <Parameter Name="UPDATEID" Type="number" Mode="In" />
+    <Parameter Name="UPDATENAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATESURNAME" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATEEMAIL" Type="nvarchar2" Mode="In" />
+    <Parameter Name="UPDATEAGE" Type="number" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище Model1Container" />
+</Schema>

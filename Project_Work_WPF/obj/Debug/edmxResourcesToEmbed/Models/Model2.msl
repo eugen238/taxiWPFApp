@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Model2Container" CdmEntityContainer="Entities8">
+    <EntitySetMapping Name="CARs">
+      <EntityTypeMapping TypeName="Model2.CAR">
+        <MappingFragment StoreEntitySet="CAR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MARK" ColumnName="MARK" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="NUMBEROFCAR" ColumnName="NUMBEROFCAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DRIVERs">
+      <EntityTypeMapping TypeName="Model2.DRIVER">
+        <MappingFragment StoreEntitySet="DRIVER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAXIORDERs">
+      <EntityTypeMapping TypeName="Model2.TAXIORDER">
+        <MappingFragment StoreEntitySet="TAXIORDER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+          <ScalarProperty Name="DRIVERID" ColumnName="DRIVERID" />
+          <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+          <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+          <ScalarProperty Name="CARID" ColumnName="CARID" />
+          <ScalarProperty Name="COST" ColumnName="COST" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="POINT" ColumnName="POINT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAXIUSERs">
+      <EntityTypeMapping TypeName="Model2.TAXIUSER">
+        <MappingFragment StoreEntitySet="TAXIUSER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+          <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USERSURNAME" ColumnName="USERSURNAME" />
+          <ScalarProperty Name="USERNUMBER" ColumnName="USERNUMBER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPEOFUSERs">
+      <EntityTypeMapping TypeName="Model2.TYPEOFUSER">
+        <MappingFragment StoreEntitySet="TYPEOFUSER">
+          <ScalarProperty Name="TYPEID" ColumnName="TYPEID" />
+          <ScalarProperty Name="NAMEOFTYPE" ColumnName="NAMEOFTYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERHISTORies">
+      <EntityTypeMapping TypeName="Model2.USERHISTORY">
+        <MappingFragment StoreEntitySet="USERHISTORY">
+          <ScalarProperty Name="HISTORYID" ColumnName="HISTORYID" />
+          <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+          <ScalarProperty Name="COSTFORTAXI" ColumnName="COSTFORTAXI" />
+          <ScalarProperty Name="TOLOCATION" ColumnName="TOLOCATION" />
+          <ScalarProperty Name="FROMLOCATION" ColumnName="FROMLOCATION" />
+          <ScalarProperty Name="TIME" ColumnName="TIME" />
+          <ScalarProperty Name="RAITING" ColumnName="RAITING" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TESTSELECT" FunctionName="Хранилище Model2.TESTSELECT" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AdminEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="CHECKADMIN" ReturnType="Collection(Model1.CHECKADMIN_Result)">
+      <Parameter Name="CHECKLOGIN" Mode="In" Type="String" />
+      <Parameter Name="CHECKPASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CHECKUSER">
+      <Parameter Name="CHECKLOGIN" Mode="In" Type="String" />
+      <Parameter Name="CHECKPASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DELETECAR">
+      <Parameter Name="DELETEID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="DELETEDRIVER">
+      <Parameter Name="DELETEID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GETCARS" ReturnType="Collection(Model1.GETCARS_Result)" />
+    <FunctionImport Name="GETDRIVERS" ReturnType="Collection(Model1.GETDRIVERS_Result)" />
+    <FunctionImport Name="GETPROFIT">
+      <Parameter Name="PROFIT" Mode="Out" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GETSTATISTICS" ReturnType="Collection(Model1.GETSTATISTICS_Result)" />
+    <FunctionImport Name="INSERTCAR">
+      <Parameter Name="INSERTMARK" Mode="In" Type="String" />
+      <Parameter Name="INSERTMODEL" Mode="In" Type="String" />
+      <Parameter Name="INSERTNUMBEROFCAR" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERTDRIVER">
+      <Parameter Name="INSERTNAME" Mode="In" Type="String" />
+      <Parameter Name="INSERTSURNAME" Mode="In" Type="String" />
+      <Parameter Name="INSERTEMAIL" Mode="In" Type="String" />
+      <Parameter Name="INSERTAGE" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATECAR">
+      <Parameter Name="UPDATEID" Mode="In" Type="Decimal" />
+      <Parameter Name="UPDATEMARK" Mode="In" Type="String" />
+      <Parameter Name="UPDATEMODEL" Mode="In" Type="String" />
+      <Parameter Name="UPDATENUMBEROFCAR" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATEDRIVER">
+      <Parameter Name="UPDATEID" Mode="In" Type="Decimal" />
+      <Parameter Name="UPDATENAME" Mode="In" Type="String" />
+      <Parameter Name="UPDATESURNAME" Mode="In" Type="String" />
+      <Parameter Name="UPDATEEMAIL" Mode="In" Type="String" />
+      <Parameter Name="UPDATEAGE" Mode="In" Type="Decimal" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="CHECKADMIN_Result">
+    <Property Type="String" Name="USERLOGIN" Nullable="true" />
+    <Property Type="String" Name="USERPASSWORD" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETCARS_Result">
+    <Property Type="Decimal" Name="ID" Nullable="false" />
+    <Property Type="String" Name="MARK" Nullable="true" />
+    <Property Type="String" Name="MODEL" Nullable="true" />
+    <Property Type="Decimal" Name="NUMBEROFCAR" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETDRIVERS_Result">
+    <Property Type="Decimal" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NAME" Nullable="true" />
+    <Property Type="String" Name="SURNAME" Nullable="true" />
+    <Property Type="String" Name="EMAIL" Nullable="true" />
+    <Property Type="Decimal" Name="AGE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETSTATISTICS_Result">
+    <Property Type="String" Name="TO_CHAR_TIME__YYYY_MM_DD__" Nullable="true" />
+    <Property Type="Decimal" Name="SUM_COSTFORTAXI_" Nullable="true" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CAR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MARK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NUMBEROFCAR" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="TAXIORDER" Relationship="Self.FK_CARIDFORTAXIORDER" FromRole="CAR" ToRole="TAXIORDER" />
+  </EntityType>
+  <EntityType Name="DRIVER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AGE" Type="Byte" />
+    <NavigationProperty Name="TAXIORDER" Relationship="Self.FK_DRIVERIDFORTAXIORDER" FromRole="DRIVER" ToRole="TAXIORDER" />
+  </EntityType>
+  <EntityType Name="TAXIORDER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CLIENTID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="DRIVERID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="FROMLOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TOLOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CARID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="COST" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="TIME" Type="DateTime" Precision="6" />
+    <Property Name="POINT" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="CAR" Relationship="Self.FK_CARIDFORTAXIORDER" FromRole="TAXIORDER" ToRole="CAR" />
+    <NavigationProperty Name="DRIVER" Relationship="Self.FK_DRIVERIDFORTAXIORDER" FromRole="TAXIORDER" ToRole="DRIVER" />
+    <NavigationProperty Name="TAXIUSER" Relationship="Self.FK_CLIENTIDFORTAXIORDER" FromRole="TAXIORDER" ToRole="TAXIUSER" />
+  </EntityType>
+  <EntityType Name="TAXIUSER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TYPEID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="USERLOGIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USERPASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USERSURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USERNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TAXIORDER" Relationship="Self.FK_CLIENTIDFORTAXIORDER" FromRole="TAXIUSER" ToRole="TAXIORDER" />
+    <NavigationProperty Name="USERHISTORY" Relationship="Self.FK_CLIENTID" FromRole="TAXIUSER" ToRole="USERHISTORY" />
+    <NavigationProperty Name="TYPEOFUSER" Relationship="Self.FK_TYPEID" FromRole="TAXIUSER" ToRole="TYPEOFUSER" />
+  </EntityType>
+  <EntityType Name="TYPEOFUSER">
+    <Key>
+      <PropertyRef Name="TYPEID" />
+    </Key>
+    <Property Name="TYPEID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAMEOFTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TAXIUSER" Relationship="Self.FK_TYPEID" FromRole="TYPEOFUSER" ToRole="TAXIUSER" />
+  </EntityType>
+  <EntityType Name="USERHISTORY">
+    <Key>
+      <PropertyRef Name="HISTORYID" />
+    </Key>
+    <Property Name="HISTORYID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CLIENTID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="COSTFORTAXI" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="TOLOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FROMLOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TIME" Type="DateTime" Precision="6" />
+    <Property Name="RAITING" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="TAXIUSER" Relationship="Self.FK_CLIENTID" FromRole="USERHISTORY" ToRole="TAXIUSER" />
+  </EntityType>
+  <Association Name="FK_CARIDFORTAXIORDER">
+    <End Role="CAR" Type="Self.CAR" Multiplicity="0..1" />
+    <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TAXIORDER">
+        <PropertyRef Name="CARID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRIVERIDFORTAXIORDER">
+    <End Role="DRIVER" Type="Self.DRIVER" Multiplicity="0..1" />
+    <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DRIVER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TAXIORDER">
+        <PropertyRef Name="DRIVERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTIDFORTAXIORDER">
+    <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="0..1" />
+    <End Role="TAXIORDER" Type="Self.TAXIORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAXIUSER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TAXIORDER">
+        <PropertyRef Name="CLIENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTID">
+    <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="0..1" />
+    <End Role="USERHISTORY" Type="Self.USERHISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAXIUSER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USERHISTORY">
+        <PropertyRef Name="CLIENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TYPEID">
+    <End Role="TYPEOFUSER" Type="Self.TYPEOFUSER" Multiplicity="0..1" />
+    <End Role="TAXIUSER" Type="Self.TAXIUSER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPEOFUSER">
+        <PropertyRef Name="TYPEID" />
+      </Principal>
+      <Dependent Role="TAXIUSER">
+        <PropertyRef Name="TYPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities13" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CAR" EntityType="Self.CAR" />
+    <EntitySet Name="DRIVER" EntityType="Self.DRIVER" />
+    <EntitySet Name="TAXIORDER" EntityType="Self.TAXIORDER" />
+    <EntitySet Name="TAXIUSER" EntityType="Self.TAXIUSER" />
+    <EntitySet Name="TYPEOFUSER" EntityType="Self.TYPEOFUSER" />
+    <EntitySet Name="USERHISTORY" EntityType="Self.USERHISTORY" />
+    <AssociationSet Name="FK_CARIDFORTAXIORDER" Association="Self.FK_CARIDFORTAXIORDER">
+      <End Role="CAR" EntitySet="CAR" />
+      <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRIVERIDFORTAXIORDER" Association="Self.FK_DRIVERIDFORTAXIORDER">
+      <End Role="DRIVER" EntitySet="DRIVER" />
+      <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTIDFORTAXIORDER" Association="Self.FK_CLIENTIDFORTAXIORDER">
+      <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+      <End Role="TAXIORDER" EntitySet="TAXIORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTID" Association="Self.FK_CLIENTID">
+      <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+      <End Role="USERHISTORY" EntitySet="USERHISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TYPEID" Association="Self.FK_TYPEID">
+      <End Role="TYPEOFUSER" EntitySet="TYPEOFUSER" />
+      <End Role="TAXIUSER" EntitySet="TAXIUSER" />
+    </AssociationSet>
+    <FunctionImport Name="CHECKADMIN" ReturnType="Collection(Model.CHECKADMIN_Result)">
+      <Parameter Name="CHECKLOGIN" Mode="In" Type="String" />
+      <Parameter Name="CHECKPASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CHECKUSER" ReturnType="Collection(Model.CHECKUSER_Result)">
+      <Parameter Name="CHECKLOGIN" Mode="In" Type="String" />
+      <Parameter Name="CHECKPASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DELETECAR">
+      <Parameter Name="DELETEID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="DELETEDRIVER">
+      <Parameter Name="DELETEID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GETCARS" ReturnType="Collection(Model.GETCARS_Result)" />
+    <FunctionImport Name="GETDRIVERS" ReturnType="Collection(Model.GETDRIVERS_Result)" />
+    <FunctionImport Name="GETHISTORY" ReturnType="Collection(Model.GETHISTORY_Result)">
+      <Parameter Name="GETCLIENTID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GETPROFIT">
+      <Parameter Name="PROFIT" Mode="Out" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GETSTATISTICS" ReturnType="Collection(Model.GETSTATISTICS_Result)" />
+    <FunctionImport Name="INSERTCAR">
+      <Parameter Name="INSERTMARK" Mode="In" Type="String" />
+      <Parameter Name="INSERTMODEL" Mode="In" Type="String" />
+      <Parameter Name="INSERTNUMBEROFCAR" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERTDRIVER">
+      <Parameter Name="INSERTNAME" Mode="In" Type="String" />
+      <Parameter Name="INSERTSURNAME" Mode="In" Type="String" />
+      <Parameter Name="INSERTEMAIL" Mode="In" Type="String" />
+      <Parameter Name="INSERTAGE" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERTORDER">
+      <Parameter Name="INSERTCARID" Mode="In" Type="Decimal" />
+      <Parameter Name="INSERTDRIVERID" Mode="In" Type="Decimal" />
+      <Parameter Name="INSERTTIME" Mode="In" Type="DateTime" />
+      <Parameter Name="INSERTCLIENTID" Mode="In" Type="Decimal" />
+      <Parameter Name="INSERTCOST" Mode="In" Type="Decimal" />
+      <Parameter Name="INSERTFROMLOCATION" Mode="In" Type="String" />
+      <Parameter Name="INSERTTOLOCATION" Mode="In" Type="String" />
+      <Parameter Name="INSERTPOINT" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERTUSER">
+      <Parameter Name="INSERTLOGIN" Mode="In" Type="String" />
+      <Parameter Name="INSERTPASSWORD" Mode="In" Type="String" />
+      <Parameter Name="INSERTNAME" Mode="In" Type="String" />
+      <Parameter Name="INSERTSURNAME" Mode="In" Type="String" />
+      <Parameter Name="INSERTNUMBER" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATECAR">
+      <Parameter Name="UPDATEID" Mode="In" Type="Decimal" />
+      <Parameter Name="UPDATEMARK" Mode="In" Type="String" />
+      <Parameter Name="UPDATEMODEL" Mode="In" Type="String" />
+      <Parameter Name="UPDATENUMBEROFCAR" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATEDRIVER">
+      <Parameter Name="UPDATEID" Mode="In" Type="Decimal" />
+      <Parameter Name="UPDATENAME" Mode="In" Type="String" />
+      <Parameter Name="UPDATESURNAME" Mode="In" Type="String" />
+      <Parameter Name="UPDATEEMAIL" Mode="In" Type="String" />
+      <Parameter Name="UPDATEAGE" Mode="In" Type="Decimal" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="CHECKADMIN_Result">
+    <Property Type="String" Name="USERLOGIN" Nullable="true" />
+    <Property Type="String" Name="USERPASSWORD" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CHECKUSER_Result">
+    <Property Type="String" Name="USERLOGIN" Nullable="true" />
+    <Property Type="String" Name="USERPASSWORD" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETHISTORY_Result">
+    <Property Type="Decimal" Name="COSTFORTAXI" Nullable="true" />
+    <Property Type="String" Name="FROMLOCATION" Nullable="true" />
+    <Property Type="String" Name="TOLOCATION" Nullable="true" />
+    <Property Type="DateTime" Name="TIME" Nullable="true" />
+    <Property Type="Decimal" Name="RAITING" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETDRIVERS_Result">
+    <Property Type="Decimal" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NAME" Nullable="true" />
+    <Property Type="String" Name="SURNAME" Nullable="true" />
+    <Property Type="String" Name="EMAIL" Nullable="true" />
+    <Property Type="Decimal" Name="AGE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETCARS_Result">
+    <Property Type="Decimal" Name="ID" Nullable="false" />
+    <Property Type="String" Name="MARK" Nullable="true" />
+    <Property Type="String" Name="MODEL" Nullable="true" />
+    <Property Type="Decimal" Name="NUMBEROFCAR" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETSTATISTICS_Result">
+    <Property Type="String" Name="TO_CHAR_TIME__YYYY_MM_DD__" Nullable="true" />
+    <Property Type="Decimal" Name="SUM_COSTFORTAXI_" Nullable="true" />
+  </ComplexType>
+</Schema>

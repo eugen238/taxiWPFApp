@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Project_Work_WPF.Views.Admin_Page_Company_Statistic_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#ebebde">
+        <ListView x:Name="AA" ItemsSource="{Binding Statistics}" Height="250" Background="White" VerticalAlignment="Top">
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="GridViewColumnHeader" >
+                            <Setter Property="Background" Value="#ebebde"></Setter>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+
+                    <GridViewColumn Header="Date" Width="140" DisplayMemberBinding="{Binding Path=DMY}"></GridViewColumn>
+                    <GridViewColumn Header="Total Profit" Width="130" DisplayMemberBinding="{Binding Path=TotalProfit}"></GridViewColumn>
+
+                    <GridViewColumn Header="Percent" Width="130" DisplayMemberBinding="{Binding Path=Precent}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Text="Total Profit: " VerticalAlignment="Center" Margin="0, 170, 0, 0" FontSize="30"></TextBlock>
+        <TextBlock Text="{Binding Profit}" VerticalAlignment="Center" Margin="200, 170, 0, 0" FontSize="30"></TextBlock>
+    </Grid>
+</UserControl>

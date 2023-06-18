@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Model1Container" CdmEntityContainer="AdminEntities">
+    <FunctionImportMapping FunctionImportName="CHECKADMIN" FunctionName="Хранилище Model1.CHECKADMIN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model1.CHECKADMIN_Result">
+          <ScalarProperty Name="USERLOGIN" ColumnName="USERLOGIN" />
+          <ScalarProperty Name="USERPASSWORD" ColumnName="USERPASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CHECKUSER" FunctionName="Хранилище Model1.CHECKUSER" />
+    <FunctionImportMapping FunctionImportName="DELETECAR" FunctionName="Хранилище Model1.DELETECAR" />
+    <FunctionImportMapping FunctionImportName="DELETEDRIVER" FunctionName="Хранилище Model1.DELETEDRIVER" />
+    <FunctionImportMapping FunctionImportName="GETCARS" FunctionName="Хранилище Model1.GETCARS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model1.GETCARS_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MARK" ColumnName="MARK" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="NUMBEROFCAR" ColumnName="NUMBEROFCAR" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETDRIVERS" FunctionName="Хранилище Model1.GETDRIVERS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model1.GETDRIVERS_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETPROFIT" FunctionName="Хранилище Model1.GETPROFIT" />
+    <FunctionImportMapping FunctionImportName="GETSTATISTICS" FunctionName="Хранилище Model1.GETSTATISTICS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model1.GETSTATISTICS_Result">
+          <ScalarProperty Name="TO_CHAR_TIME__YYYY_MM_DD__" ColumnName="TO_CHAR(TIME,'YYYY-MM-DD')" />
+          <ScalarProperty Name="SUM_COSTFORTAXI_" ColumnName="SUM(COSTFORTAXI)" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INSERTCAR" FunctionName="Хранилище Model1.INSERTCAR" />
+    <FunctionImportMapping FunctionImportName="INSERTDRIVER" FunctionName="Хранилище Model1.INSERTDRIVER" />
+    <FunctionImportMapping FunctionImportName="UPDATECAR" FunctionName="Хранилище Model1.UPDATECAR" />
+    <FunctionImportMapping FunctionImportName="UPDATEDRIVER" FunctionName="Хранилище Model1.UPDATEDRIVER" />
+  </EntityContainerMapping>
+</Mapping>

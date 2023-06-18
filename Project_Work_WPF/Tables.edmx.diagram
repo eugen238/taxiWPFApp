@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad7044a4581c49bc8085e61bf084cacc" Name="Diagram1">
+        <EntityTypeShape EntityType="Model2.CAR" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model2.DRIVER" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model2.TAXIORDER" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model2.TAXIUSER" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model2.TYPEOFUSER" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model2.USERHISTORY" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="Model2.FK_CARIDFORTAXIORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="Model2.FK_DRIVERIDFORTAXIORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="Model2.FK_CLIENTIDFORTAXIORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="Model2.FK_CLIENTID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model2.FK_TYPEID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="UserEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="CHECKUSER" ReturnType="Collection(Model.CHECKUSER_Result)">
+      <Parameter Name="CHECKLOGIN" Mode="In" Type="String" />
+      <Parameter Name="CHECKPASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DELETEUSER">
+      <Parameter Name="DELETEID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GETHISTORY" ReturnType="Collection(Model.GETHISTORY_Result)">
+      <Parameter Name="GETCLIENTID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERTORDER">
+      <Parameter Name="INSERTCARID" Mode="In" Type="Decimal" />
+      <Parameter Name="INSERTDRIVERID" Mode="In" Type="Decimal" />
+      <Parameter Name="INSERTTIME" Mode="In" Type="DateTime" />
+      <Parameter Name="INSERTCLIENTID" Mode="In" Type="Decimal" />
+      <Parameter Name="INSERTCOST" Mode="In" Type="Decimal" />
+      <Parameter Name="INSERTFROMLOCATION" Mode="In" Type="String" />
+      <Parameter Name="INSERTTOLOCATION" Mode="In" Type="String" />
+      <Parameter Name="INSERTPOINT" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="INSERTUSER">
+      <Parameter Name="INSERTLOGIN" Mode="In" Type="String" />
+      <Parameter Name="INSERTPASSWORD" Mode="In" Type="String" />
+      <Parameter Name="INSERTNAME" Mode="In" Type="String" />
+      <Parameter Name="INSERTSURNAME" Mode="In" Type="String" />
+      <Parameter Name="INSERTNUMBER" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATEUSER">
+      <Parameter Name="USERID" Mode="In" Type="Decimal" />
+      <Parameter Name="UPDATELOGIN" Mode="In" Type="String" />
+      <Parameter Name="UPDATEPASSWORD" Mode="In" Type="String" />
+      <Parameter Name="UPDATENAME" Mode="In" Type="String" />
+      <Parameter Name="UPDATESURNAME" Mode="In" Type="String" />
+      <Parameter Name="UPDATENUMBER" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GETCARSNAMES" ReturnType="Collection(Model.GETCARSNAMES_Result)" />
+    <FunctionImport Name="GETDECTYPTEDPASSWORD">
+      <Parameter Name="ENCRYPTEDPASSWORD" Mode="In" Type="String" />
+      <Parameter Name="DECRYPTEDPASSWORD" Mode="Out" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GETUSER" ReturnType="Collection(Model.GETUSER_Result)">
+      <Parameter Name="GETLOGIN" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="CHECKUSER_Result">
+    <Property Type="String" Name="USERLOGIN" Nullable="true" />
+    <Property Type="String" Name="USERPASSWORD" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETHISTORY_Result">
+    <Property Type="Decimal" Name="COSTFORTAXI" Nullable="true" />
+    <Property Type="String" Name="FROMLOCATION" Nullable="true" />
+    <Property Type="String" Name="TOLOCATION" Nullable="true" />
+    <Property Type="DateTime" Name="TIME" Nullable="true" />
+    <Property Type="Decimal" Name="RAITING" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETCARSNAMES_Result">
+    <Property Type="String" Name="MARK" Nullable="true" />
+    <Property Type="String" Name="MODEL" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETUSER_Result">
+    <Property Type="String" Name="USERLOGIN" Nullable="true" />
+    <Property Type="String" Name="USERPASSWORD" Nullable="true" />
+    <Property Type="String" Name="USERNAME" Nullable="true" />
+    <Property Type="String" Name="USERSURNAME" Nullable="true" />
+    <Property Type="String" Name="USERNUMBER" Nullable="true" />
+  </ComplexType>
+</Schema>
